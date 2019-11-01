@@ -20,6 +20,7 @@ import java.util.Map;
 public class RomanToInt {
     public static int romanToInt(String s) {
         int sum = 0;
+        //构建hashmap
         Map<String,Integer> RomanNumbers = new HashMap<String,Integer>();
         RomanNumbers.put("I",1);
         RomanNumbers.put("V",5);
@@ -28,8 +29,10 @@ public class RomanToInt {
         RomanNumbers.put("C",100);
         RomanNumbers.put("D",500);
         RomanNumbers.put("M",1000);
+        //遍历输入的罗马数字
         for(int i=0;i<s.length();i++){
             String CurrRomanNumber = s.substring(i,i+1);
+            //如果后一位的数字大于当前数字，就后一位减当前位
             if((i+1)<s.length()){
                 String NextRomanNumber = s.substring(i+1,i+2);
                 if(RomanNumbers.get(NextRomanNumber)>RomanNumbers.get(CurrRomanNumber)){

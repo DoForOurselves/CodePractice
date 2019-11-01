@@ -22,9 +22,13 @@ import java.util.Stack;
  */
 public class ValidParentheses {
     public static boolean isValid(String s) {
+        //栈方法
         Stack stack = new Stack();
+        //遍历字符串
         for(int i=0;i<s.length();i++){
+            //截取字符串
             String temple = s.substring(i,i+1);
+            //左括号就压栈，右括号就弹栈
             switch(temple){
                 case "{":
                     stack.push(temple);
@@ -61,6 +65,7 @@ public class ValidParentheses {
                 }
             }
         }
+        //循环后，如果栈为空，
         if(stack.empty()){
             return true;
         }else{
