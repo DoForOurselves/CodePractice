@@ -65,7 +65,7 @@ public class ValidParentheses {
                 }
             }
         }
-        //循环后，如果栈为空，
+        //循环后，如果栈为空，说明括号都已成功匹配，如果不为空，说明括号为完全匹配
         if(stack.empty()){
             return true;
         }else{
