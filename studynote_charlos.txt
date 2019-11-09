@@ -1,5 +1,6 @@
 Charlos学习笔记
 数组长度 用.length
+字符串长度 用.length()
 字符串匹配 string.indexOf() 返回完全匹配时，第一个字符出现的位置的下标
 字符串截取 string.subString(i,j) 从下标为i截取到下标为j
 hash表 查询时间是1

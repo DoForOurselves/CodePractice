@@ -1,7 +1,4 @@
-import Charlos.demo.easy.RemoveDuplicates;
-import Charlos.demo.easy.RemoveElement;
-import Charlos.demo.easy.RomanToInt;
-import Charlos.demo.easy.ValidParentheses;
+import Charlos.demo.easy.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,5 +8,6 @@ public class Main {
 //        int []nums={0,0,1,1,1,2,2,3,3,4};
 //        System.out.println(RemoveDuplicates.removeDuplicates(nums));
 //        System.out.println(RemoveElement.removeElement(nums,1));
+//        System.out.println(ImplementStrStr.strStr("aaabb","ac"));
     }
 }
