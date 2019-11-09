@@ -16,10 +16,16 @@ package Charlos.demo.easy;
 
  */
 public class RemoveElement {
-    public int removeElement(int[] nums, int val) {
-        int left=0;
-        int right=nums.length-1;
-
-        return 1;
+    public static int removeElement(int[] nums, int val) {
+        //结果值初始化为0
+        int result = 0;
+        //遍历输入的数组
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]!=val) {
+                nums[result] = nums[i];
+                result++;
+            }
+        }
+        return result;
     }
 }
