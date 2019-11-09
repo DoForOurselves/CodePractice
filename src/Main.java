@@ -1,4 +1,7 @@
 import Charlos.demo.easy.*;
+import Charlos.demo.self.Fibonacci;
+
+import javax.swing.plaf.synth.SynthEditorPaneUI;
 
 public class Main {
     public static void main(String[] args) {
@@ -9,5 +12,7 @@ public class Main {
 //        System.out.println(RemoveDuplicates.removeDuplicates(nums));
 //        System.out.println(RemoveElement.removeElement(nums,1));
 //        System.out.println(ImplementStrStr.strStr("aaabb","ac"));
+        System.out.println(CountAndSay.countAndSay(4));
+//        System.out.println(Fibonacci.fibonacci(5));
     }
 }

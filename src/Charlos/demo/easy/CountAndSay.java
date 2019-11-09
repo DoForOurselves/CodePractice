@@ -9,7 +9,7 @@ package Charlos.demo.easy;
  **/
 
 /*
-    #38 报数
+    #38 报数（未完）
 
     报数序列是一个整数序列，按照其中的整数的顺序进行报数，得到下一个数。其前五项如下：
     1.     1
@@ -25,17 +25,38 @@ package Charlos.demo.easy;
     注意：整数顺序将表示为一个字符串。
 
  */
+//public class CountAndSay {
+//    public static String countAndSay(int n) {
+//
+//        return "";
+//    }
+//}
 public class CountAndSay {
-    public String countAndSay(int n) {
+    public static String countAndSay(int n) {
         String resultString = "1";
-        String temple;
         for(int i=1;i<n;i++){
-            int count=0;
+            int count=1;
+            String currString="";
+            String temple;
+            temple=resultString.substring(0,1);
             for(int j=0;j<resultString.length();j++){
-                resultString.substring(j,j+1);
-
+                if(j==0){
+                    continue;
+                }
+                if (resultString.substring(j,j+1).equals(temple)) {
+                    count++;
+                }else{
+                    currString=currString+Integer.toString(count) +resultString.substring(j,j+1);
+                    count=1;
+                    if(j+2<resultString.length()){
+                        temple=resultString.substring(j+1,j+2);
+                    }else{
+                        resultString = currString;
+                        break;
+                    }
+                }
             }
         }
-        return "a";
+        return resultString ;
     }
 }

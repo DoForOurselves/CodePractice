@@ -7,6 +7,10 @@ package Charlos.demo.common;
  * @Date 2019/10/28 14:39
  * @Version 1.0
  **/
+
+/*
+    公共类 ListNode
+ */
 public class ListNode {
     private int val;
     private ListNode next;
@@ -19,7 +23,6 @@ public class ListNode {
     public ListNode getNext() {
         return next;
     }
-
     public void setNext(ListNode next) {
         this.next = next;
     }
