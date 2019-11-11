@@ -27,7 +27,7 @@ package Charlos.demo.easy;
  */
 public class CountAndSay {
     public static String countAndSay(int n) {
-        String resultString = "11";
+        StringBuffer resultString = new StringBuffer("11");
         //当n=1时，返回1
         if(n==1){
             return "1";
@@ -38,31 +38,33 @@ public class CountAndSay {
         }
         //当获取行数大于2时
         for(int i=2;i<n;i++){
-            //重复字符串计数器
+            //初始化
             int count=1;
+            int stringlength = resultString.length();
             //新字符串的临时字符串
-            String currString="";
+            StringBuffer currString=new StringBuffer("");
             //对比用字符串初始化
-            String temple = resultString.substring(0,1);
+            char temple = resultString.charAt(0);
             //对字符串进行遍历
-            for(int j=1;j<resultString.length();j++){
+            for(int j=1;j<stringlength;j++){
+                char currChar = resultString.charAt(j);
                 //如果和对比中的字符串相同，则计数加1；
                 // 否则就把对比用字符串添加到新字符串末尾，计数重置为1，把当前字符串设置为对比用字符串
-                if (resultString.substring(j,j+1).equals(temple)) {
+                if (currChar==temple) {
                     count++;
                 } else {
-                    currString = currString + Integer.toString(count) + temple;
+                    currString.append(Integer.toString(count)).append(temple);
                     count = 1;
-                    temple = resultString.substring(j,j+1);
+                    temple = currChar;
                 }
                 //如果当前字符串已经是最后一位的字符串，则将该字符串添加到新字符串末尾
-                if(j+1>=resultString.length()){
-                    resultString = currString + Integer.toString(count) + resultString.substring(j,j+1);
+                if(j+1>=stringlength){
+                    resultString = currString.append(Integer.toString(count)).append(currChar);
                     break;
                 }
             }
         }
-        return resultString ;
+        return resultString.toString() ;
     }
 }
 /*
