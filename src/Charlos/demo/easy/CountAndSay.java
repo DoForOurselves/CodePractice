@@ -9,7 +9,7 @@ package Charlos.demo.easy;
  **/
 
 /*
-    #38 报数（未完）
+    #38 报数（完）
 
     报数序列是一个整数序列，按照其中的整数的顺序进行报数，得到下一个数。其前五项如下：
     1.     1
@@ -25,38 +25,76 @@ package Charlos.demo.easy;
     注意：整数顺序将表示为一个字符串。
 
  */
-//public class CountAndSay {
-//    public static String countAndSay(int n) {
-//
-//        return "";
-//    }
-//}
 public class CountAndSay {
     public static String countAndSay(int n) {
-        String resultString = "1";
-        for(int i=1;i<n;i++){
+        String resultString = "11";
+        //当n=1时，返回1
+        if(n==1){
+            return "1";
+        }
+        //当n=2时，返回11
+        if(n==2){
+            return "11";
+        }
+        //当获取行数大于2时
+        for(int i=2;i<n;i++){
+            //重复字符串计数器
             int count=1;
+            //新字符串的临时字符串
             String currString="";
-            String temple;
-            temple=resultString.substring(0,1);
-            for(int j=0;j<resultString.length();j++){
-                if(j==0){
-                    continue;
-                }
+            //对比用字符串初始化
+            String temple = resultString.substring(0,1);
+            //对字符串进行遍历
+            for(int j=1;j<resultString.length();j++){
+                //如果和对比中的字符串相同，则计数加1；
+                // 否则就把对比用字符串添加到新字符串末尾，计数重置为1，把当前字符串设置为对比用字符串
                 if (resultString.substring(j,j+1).equals(temple)) {
                     count++;
-                }else{
-                    currString=currString+Integer.toString(count) +resultString.substring(j,j+1);
-                    count=1;
-                    if(j+2<resultString.length()){
-                        temple=resultString.substring(j+1,j+2);
-                    }else{
-                        resultString = currString;
-                        break;
-                    }
+                } else {
+                    currString = currString + Integer.toString(count) + temple;
+                    count = 1;
+                    temple = resultString.substring(j,j+1);
+                }
+                //如果当前字符串已经是最后一位的字符串，则将该字符串添加到新字符串末尾
+                if(j+1>=resultString.length()){
+                    resultString = currString + Integer.toString(count) + resultString.substring(j,j+1);
+                    break;
                 }
             }
         }
         return resultString ;
     }
 }
+/*
+优解
+ */
+//class Solution {
+//    public static String countAndSay(int n) {
+//        StringBuilder ans = new StringBuilder();
+//        ans.append("1");
+//        for (int i = 2; i <= n ; i++) {
+//            //遍历前一个字符串
+//            String currentStr = new String(ans);
+//            ans.delete(0,ans.length());
+//            int num = 0;
+//            char currentChar = currentStr.charAt(0);
+//            for (char c : currentStr.toCharArray()) {
+//                if(c == currentChar){
+//                    num++;
+//                }
+//                else{
+//                    ans.append((char)('0'+num));
+//                    ans.append(currentChar);
+//                    currentChar = c;
+//                    num = 1;
+//                }
+//            }
+//            ans.append((char)('0'+num));
+//            ans.append(currentChar);
+//
+//        }
+//
+//        return ans.toString();
+//    }
+//}
+
