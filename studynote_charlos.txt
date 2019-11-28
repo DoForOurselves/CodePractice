@@ -13,3 +13,4 @@ break:退出当前循环体，继续循环体外的代码
 截取字符串 .subString()注意边界
 StringBuffer: .append()函数 比 多次将String相加所用时间少很多
 String: String 字符串相加会开辟额外空间
+循环效率比递归快的多，尤其是递归次数过多的时候
